@@ -5,7 +5,7 @@ const cName = document.getElementById("creature-name");
 const id = document.getElementById("creature-id");
 const weight = document.getElementById("weight");
 const height = document.getElementById("height");
-const types = document.getElementById("types");
+const typesContainer = document.getElementById("types-container");
 const hp = document.getElementById("hp");
 const attack = document.getElementById("attack");
 const defense = document.getElementById("defense");
@@ -41,13 +41,22 @@ async function update(cIdName) {
     id.textContent = currentMonster.id;
     weight.textContent = currentMonster.weight;
     height.textContent = currentMonster.height;
-    types.textContent = currentMonster.types.map(t => t.name).join(" ");;
     hp.textContent = statsMap.hp;
     attack.textContent = statsMap.attack;
     defense.textContent = statsMap.defense;
     specialAttack.textContent = statsMap["special-attack"];
     specialDefense.textContent = statsMap["special-defense"];
     speed.textContent = statsMap.speed;
+    //types read & create
+    typesContainer.innerHTML = "";
+    const thisTypes = currentMonster.types.map(t => t.name);
+    const type1 = document.createElement("p");
+    type1.textContent = thisTypes[0].toUpperCase();
+    typesContainer.appendChild(type1);
+
+    const type2 = document.createElement("p");
+    type2.textContent = thisTypes[1].toUpperCase();
+    typesContainer.appendChild(type2);
 }
 
 searchBtn.addEventListener("click", () => update(searchInput.value));
