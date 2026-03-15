@@ -27,33 +27,27 @@ async function getData(cIdName) {
     }
 }
 
-function prepData(creatureData) {
-    const { id, name, weight, height, special, stats, types } = creatureData;
+async function update(cIdName) {
+    const currentMonster = await getData(cIdName);
+    if (!currentMonster) return;
 
     const statsMap = {};
-    stats.forEach(stat => {
+    currentMonster.stats.forEach(stat => {
         statsMap[stat.name] = stat.base_stat;
     });
-
-    console.log({ id, name, weight, height, types, statsMap, special });
-};
-
-function update(cIdName) {
-    const currentMonster = await (getData(cIdName).then(creature => { if (creature) { prepData(creature); } }));
-    console.log(currentMonster);
 
     // update elements after search
     cName.textContent = currentMonster.name;
     id.textContent = currentMonster.id;
     weight.textContent = currentMonster.weight;
     height.textContent = currentMonster.height;
-    types.textContent = currentMonster.types;
-    hp.textContent = currentMonster.hp;
-    attack.textContent = currentMonster.attack;
-    defense.textContent = currentMonster.defense;
-    specialAttack.textContent = currentMonster.specialAttack;
-    specialDefense.textContent = currentMonster.specialDefense;
-    speed.textContent = currentMonster.speed;
+    types.textContent = currentMonster.types.map(t => t.name).join(" ");;
+    hp.textContent = statsMap.hp;
+    attack.textContent = statsMap.attack;
+    defense.textContent = statsMap.defense;
+    specialAttack.textContent = statsMap["special-attack"];
+    specialDefense.textContent = statsMap["special-defense"];
+    speed.textContent = statsMap.speed;
 }
 
 searchBtn.addEventListener("click", () => update(searchInput.value));
