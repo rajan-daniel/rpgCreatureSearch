@@ -1,0 +1,102 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f8d7da, #f3a6ac);
+    color: #2b2b2b;
+    padding: 40px;
+}
+
+/* Header */
+#header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#header img {
+    max-width: 350px;
+    margin-bottom: 15px;
+}
+
+#title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+#instructions {
+    color: #5a3d40;
+}
+
+/* Search */
+#search-input {
+    padding: 12px 15px;
+    width: 250px;
+    border-radius: 8px;
+    border: 1px solid #e5a2a8;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#search-button {
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    background: #d65a65;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#search-button:hover {
+    background: #bf4c56;
+}
+
+/* Creature card (left aligned) */
+#creature-card {
+    margin-top: 30px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    width: 350px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Text */
+p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+span {
+    font-weight: bold;
+}
+
+/* Stats colors */
+#hp,
+#attack,
+#defense,
+#special-attack,
+#special-defense,
+#speed {
+    color: #c23b44;
+}
+
+/* Types */
+#types {
+    color: #a8323a;
+}
+
+/* Center search bar */
+#search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
